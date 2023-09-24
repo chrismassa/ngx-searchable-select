@@ -1,24 +1,31 @@
-# NgxSearchableSelect
+# Getting Started
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+ngx-searchable-select is an Angular library designed to extend the mat-select component of Angular Material and include an embedded search functionality.
 
-## Code scaffolding
+# Installation
 
-Run `ng generate component component-name --project ngx-searchable-select` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-searchable-select`.
-> Note: Don't forget to add `--project ngx-searchable-select` or else it will be added to the default project in your `angular.json` file. 
+After creating a new Angular project simply run:
 
-## Build
+```properties
+npm install ngx-searchable-select --save
+``` 
 
-Run `ng build ngx-searchable-select` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Usage
 
-## Publishing
+- Firstly, import NgxSearchableSelectComponent in your app module (or any other proper Angular Module, Standalone Components also work).
+  
+    ```typescript
+    import { NgxSearchableSelectComponent } from 'ngx-searchable-select';
 
-After building your library with `ng build ngx-searchable-select`, go to the dist folder `cd dist/ngx-searchable-select` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngx-searchable-select` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    @NgModule({
+        imports: [
+            NgxSearchableSelectComponent
+        ],
+    })
+    export class AppModule {}
+    ```
+- Then use the **ngx-searchable-select** tag in the HTML of your Angular component:
+  
+  ```html
+  <ngx-searchable-select label="User" />
+  ```
