@@ -1,1 +1,23 @@
-<ngx-searchable-select></ngx-searchable-select>
+<form [formGroup]="form" class="group">
+  <ngx-searchable-select
+    label="User"
+    formControlName="user"
+    [options]="users$ | async"
+    searchField="username"
+  ></ngx-searchable-select>
+  <ngx-searchable-select
+    label="Todo"
+    formControlName="todo"
+    [options]="todos$ | async"
+    searchField="title"
+  ></ngx-searchable-select>
+  <ngx-searchable-select
+    label="Comment"
+    formControlName="comment"
+    [options]="comments$ | async"
+    searchField="email"
+  ></ngx-searchable-select>
+  <pre *ngIf="form.valid">
+    <p>{{ form.value | json }}</p>
+  </pre>
+</form>
