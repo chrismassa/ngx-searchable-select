@@ -1,6 +1,6 @@
 {
   "name": "ngx-searchable-select",
-  "version": "16.0.0",
+  "version": "16.0.1",
   "peerDependencies": {
     "@angular/cdk": "^16.2.5",
     "@angular/common": "^16.2.0",

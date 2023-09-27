@@ -2,6 +2,8 @@
 
 ngx-searchable-select is an Angular library designed to extend the mat-select component of Angular Material and include an embedded search functionality.
 
+![Alt text](https://i.imgur.com/4Q26Zl4.png)
+
 # Installation
 
 After creating a new Angular project simply run:
