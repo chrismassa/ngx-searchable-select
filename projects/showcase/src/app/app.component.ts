@@ -1,3 +1,4 @@
+import { map } from 'rxjs';
 import { Component, inject } from '@angular/core';
 import { NgxSearchableSelectComponent } from 'ngx-searchable-select';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -28,7 +29,7 @@ export class AppComponent {
     comment: new FormControl(null, Validators.required),
   })
 
-  users$ = this.http.get<User[]>('https://jsonplaceholder.typicode.com/users');
+  users$ = this.http.get<User[]>('https://jsonplaceholder.typicode.com/users').pipe(map(users => users.map(({ username }) => username)));
   todos$ = this.http.get<any[]>('https://jsonplaceholder.typicode.com/todos');
   comments$ = this.http.get<any[]>('https://jsonplaceholder.typicode.com/comments');
 

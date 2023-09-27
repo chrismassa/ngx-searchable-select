@@ -93,14 +93,18 @@ export class NgxSearchableSelectComponent<T extends StringOrRecord> implements O
   @Input() nothingFoundText: string = 'Nothing found...';
 
   filter(text: string) {
-    const isStringArray = this.options?.every((item) => typeof item === 'string');
-    if (!isStringArray) {
-      if (!this.searchField) {
+    if (this.options) {
+      const isStringArray = this.options.every((item) => typeof item === 'string');
+      if (!isStringArray) {
+        if (this.searchField) {
+          const index = this.searchField;
+          return this.options.filter(option => (<Record<string, any>>option)[index].toLowerCase().includes(text.toLowerCase()));
+        }
         throw new Error('The options provided are not primitive strings. You must also provide the "searchField" input.');
       }
-      return this.options?.filter(option => (<Record<string, any>>option)[`${this.searchField}`].toLowerCase().includes(text.toLowerCase()));
+      return this.options.filter(option => (<string>option).toLowerCase().includes(text.toLowerCase()));
     }
-    return this.options?.filter(option => (<string>option).toLowerCase().includes(text.toLowerCase()));
+    return [];
   };
 
   _value = new FormControl<T | null>(null, { nonNullable: false });
